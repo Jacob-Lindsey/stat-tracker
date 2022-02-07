@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useQuery } from 'react-query';
 import Content from './Content/Content';
-import styles from './Card.module.css';
+import styles from './Cards.module.css';
 
-const Card = () => {
+const Cards = () => {
 
   const { isLoading, error, data } = useQuery("driver-list", () =>
     fetch('https://ergast.com/api/f1/2021/driverStandings.json')
@@ -31,4 +30,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Cards;
