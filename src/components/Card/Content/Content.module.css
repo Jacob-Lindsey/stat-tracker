@@ -1,0 +1,71 @@
+.card {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 12rem 1fr;
+    height: 60px;
+    overflow: hidden;
+    padding: 1rem 0 1rem 1.5rem;
+    position: relative;
+    transition: height 0.3s ease-in-out;
+}
+
+.card:nth-child(even) {
+    background-color: #444;
+}
+
+.result {
+    padding: 0 0.5rem;
+}
+
+.name, .team, .points, .number {
+    align-self: center;
+    text-align: center;
+}
+
+.points {
+
+}
+
+.wins {
+
+}
+
+.number {
+    font-family: 'Formula-One-Bold';
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: start;
+}
+
+.team {
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+
+
+.image img {
+    height: 180px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    width: 12rem;
+}
+
+.expanded .image img {
+    opacity: 1;
+    visibility: visible;
+}
+
+span.card.expanded {
+    height: 160px;
+}
+
+.hidden {
+    display: none;
+}

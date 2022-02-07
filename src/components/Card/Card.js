@@ -1,33 +1,34 @@
-import { useEffect, useState } from 'react'
-import fetchData from '../../utils/fetchData'
-import styles from './Card.module.css'
+import { useState } from 'react';
+import { useQuery } from 'react-query';
+import Content from './Content/Content';
+import styles from './Card.module.css';
 
 const Card = () => {
 
-  const [data, setData] = useState(); 
-
-  useEffect(() => {
-    fetchData(setData);
-  },[setData]);
+  const { isLoading, error, data } = useQuery("driver-list", () =>
+    fetch('https://ergast.com/api/f1/2021/driverStandings.json')
+      .then((res) => res.json()));
+      
+  const content = 
+    isLoading 
+      ? <h1 className={styles.title}>"Loading..."</h1> 
+    : error
+      ? <h1 className={styles.title}>"Error getting data"</h1>
+    : 
+      <>
+        <h1 className={styles.title}>{data.MRData.StandingsTable.season}</h1>
+        {
+          data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map((driver,index) => (
+            <Content data={driver} key={index} />
+          ))
+        }
+      </>
 
   return (
-
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>{data.season}</h1>
-      {
-        data.StandingsLists[0].DriverStandings.map((driver,index) => (
-          <span className={styles.card} key={index}>
-            <div className={styles.result}>{driver.position}</div>
-            <div className={styles.name}>{driver.Driver.givenName} {driver.Driver.familyName}</div>
-            <div className={styles.points}>{driver.points}</div>
-            <div className={styles.wins}>{driver.wins}</div>
-            <div className={styles.number}>{driver.Driver.permanentNumber}</div>
-          </span>
-        ))
-      }
-      
+      {content}
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

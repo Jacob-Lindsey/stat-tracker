@@ -1,49 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    font-family: 'Formula-One-Regular';
     padding: 24px 72px;
-    width: 720px;
-}
-
-.card {
-    display: grid;
-    grid-template-columns: 4rem 1.4fr 0.4fr 0.3fr 1.4fr;
-    padding: 2rem 0 2rem 0.5rem;
-    position: relative;
-}
-
-.card:nth-child(even) {
-    background-color: #444;
-}
-
-.result {
-    padding: 0 0.5rem;
-}
-
-.points {
-
-}
-
-.wins {
-
-}
-
-.number {
-    font-family: 'Formula-One';
-    font-size: 3.5rem;
-    justify-self: end;
-    padding-right: 2rem;
-    position: absolute;
-    bottom: 10%;
-    right: 0;
-    font-style: italic;
-}
-
-.name {
-}
-
-.team {
-}
-
-.image {
+    width: 960px;
 }

@@ -1,6 +1,11 @@
 @font-face {
-  font-family: 'Formula-One';
+  font-family: 'Formula-One-Bold';
   src: url("./assets/Formula1-Bold.ttf");
+}
+
+@font-face {
+  font-family: 'Formula-One-Regular';
+  src: url("./assets/Formula1-Regular.ttf");
 }
 
 body {
