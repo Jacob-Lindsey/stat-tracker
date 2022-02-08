@@ -3,8 +3,22 @@
     flex-direction: column;
     font-family: 'Formula-One-Regular';
     gap: 16px;
-    padding: 24px 72px;
-    width: 960px;
+    padding: 48px 24px;
+    width: 100%;
+}
+
+.yearNavigationWrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: sticky;
+}
+
+.year {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
 }
 
 .yearNavigation {
@@ -16,4 +30,43 @@
 .yearNavigation span {
     cursor: pointer;
     font-size: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.disabled {
+    color: rgba(153, 153, 153, 0.479);
+}
+
+.disabled:hover {
+    color: rgba(153, 153, 153, 0.479) !important;
+}
+
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        gap: 16px;
+        padding: 48px 24px;
+        width: 960px;
+    }
+    
+    .yearNavigationWrapper {
+
+    }
+    
+    .yearNavigation {
+
+    }
+    
+    .yearNavigation span {
+
+    }
+
+    .year:hover {
+        color: rgb(89, 167, 240);
+    }
 }

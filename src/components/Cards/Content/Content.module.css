@@ -1,6 +1,6 @@
 .card {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 12rem 1fr;
+    grid-template-columns: 1fr 0.5fr;
     height: 60px;
     overflow: hidden;
     padding: 1rem 0 1rem 1.75rem;
@@ -21,7 +21,7 @@
 
 }
 
-.numbe {
+.number {
     font-family: 'Formula-One-Bold';
     font-size: 3.5rem;
     font-weight: 800;
@@ -37,29 +37,37 @@
 }
 
 .points {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    text-align: start;
+    text-shadow: 
+        rgba(3, 6, 8, 0.534) 1px 1px 0px,
+        rgba(3, 6, 10, 0.644) 1px -1px 0px, 
+        rgba(0, 0, 0, 0.534) -1px 1px 0px, 
+        rgba(4, 7, 10, 0.596) -1px -1px 0px, 
+        rgba(1, 1, 2, 0.459) 1px 0px 0px, 
+        rgba(5, 10, 15, 0.568) 0px 1px 0px, 
+        rgba(4, 8, 12, 0.466) -1px 0px 0px, 
+        rgba(7, 14, 22, 0.514) 0px -1px 0px;
 }
 
 .name {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     text-align: start;
 }
 
 .team {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: start;
 }
 
-
-
 .image img {
-    height: 180px;
+    height: 120px;
     opacity: 0;
     position: absolute;
     transition: all 0.3s ease-in-out;
     visibility: hidden;
-    width: 12rem;
+    width: 8rem;
 }
 
 .expanded .image img {
@@ -73,4 +81,55 @@ span.card.expanded {
 
 .hidden {
     display: none;
+}
+
+@media screen and (min-width: 768px) {
+
+    .card {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 12rem 1fr;
+        height: 60px;
+        overflow: hidden;
+        padding: 1rem 0 1rem 1.75rem;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .result {
+        padding: 0 0.5rem;
+    }
+    
+    .name, .team, .points, .number {
+        align-self: center;
+        text-align: center;
+    }
+    
+    .wins {
+    
+    }
+    
+    .number {
+
+    }
+    
+    .points {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .team {
+        font-size: 1.2rem;
+    }
+    
+    .image img {
+        height: 180px;
+        width: 12rem;
+    }
+
+
+
 }

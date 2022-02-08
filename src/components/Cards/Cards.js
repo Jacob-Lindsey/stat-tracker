@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
+import axios from 'axios';
 import Content from './Content/Content';
 import styles from './Cards.module.css';
 
 const Cards = () => {
 
   const [year, setYear] = useState(2021);
-
-  /* const { isLoading, error, data } = useQuery("driver-list", () =>
-    fetch(`https://ergast.com/api/f1/${year}/driverStandings.json`)
-      .then((res) => res.json())); */
 
   async function fetchDriversByYear() {
     const {data} = await axios.get(`https://ergast.com/api/f1/${year}/driverStandings.json`);
@@ -24,20 +20,27 @@ const Cards = () => {
   };
 
   const handleIncrement = () => {
+    if (year === 2021) {
+      return;
+    }
     setYear((year) => year + 1);
   };
       
   const content = 
     isLoading 
-      ? <h1 className={styles.title}>"Loading..."</h1> 
+      ? <h1 className={styles.title}>Loading...</h1> 
     : error
-      ? <h1 className={styles.title}>"Error getting data"</h1>
+      ? <h1 className={styles.title}>Error getting data</h1>
     : 
       <>
-        <div className={styles.yearNavigation}>
-          <span onClick={handleDecrement}>&lt;</span>
-          <h1 className={styles.title}>{data.MRData.StandingsTable.season}</h1>
-          <span onClick={handleIncrement}>&gt;</span>
+        <div className={styles.yearNavigationWrapper}>
+          <span className={styles.year} onClick={handleDecrement}>{year-1}</span>
+          <div className={styles.yearNavigation}>
+            <span className={styles.year} onClick={handleDecrement}>&lt;</span>
+            <div className={styles.title}>{data.MRData.StandingsTable.season}</div>
+            <span className={styles.year} onClick={handleIncrement}>&gt;</span>
+          </div>
+          <span className={`${styles.year} ${year === 2021 ? styles.disabled : ''}`} onClick={handleIncrement}>{year+1}</span>
         </div>
         
         {
