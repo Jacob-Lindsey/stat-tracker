@@ -1,5 +1,6 @@
 import { useState } from "react";
 import getDriverInfo from "../../../data/getDriverInfo";
+import getTeamInfo from "../../../data/getTeamInfo";
 import styles from "./Content.module.css";
 
 const Content = (driver) => {
@@ -10,10 +11,8 @@ const Content = (driver) => {
         setExpanded(!expanded);
     };
 
-    const driverData = getDriverInfo(driver.data.Driver.code);
-    const driverImage = driverData[0];
-    const teamBG = driverData[1];
-    console.log(teamBG)
+    const driverImage = getDriverInfo(driver.data.Driver.code);
+    const teamBG = getTeamInfo(driver.data.Constructors[0].constructorId);
 
     return (
             <span 
@@ -26,7 +25,7 @@ const Content = (driver) => {
                 <div className={styles.name}>{driver.data.Driver.familyName}</div>
                 <div className={styles.team}>{driver.data.Constructors[0].name}</div>
                 <div className={styles.image}><img src={driverImage} alt='' /></div>
-                <div className={styles.number}>{driver.data.Driver.permanentNumber}</div>
+                <div className={styles.points}>{driver.data.points}</div>
                 {/* <div className={`${expanded ? styles.points : styles.hidden}`}>{driver.data.points}</div> */}
             </span>
     )

@@ -1,5 +1,7 @@
-export default function fetchData(setData) {
-    fetch('https://ergast.com/api/f1/2021/driverStandings.json')
-        .then(response => response.json())
-        .then(data => setData(data.MRData.StandingsTable));
+const getDriversByYear = async (year) => {
+    const res = fetch(`https://ergast.com/api/f1/${year}/driverStandings.json`)
+        .then(response => response.json());
+    return res.data.MRData.StandingsTable;
 };
+
+export default getDriversByYear;

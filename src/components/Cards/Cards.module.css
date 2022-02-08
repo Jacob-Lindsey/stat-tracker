@@ -6,3 +6,14 @@
     padding: 24px 72px;
     width: 960px;
 }
+
+.yearNavigation {
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.yearNavigation span {
+    cursor: pointer;
+    font-size: 2rem;
+}
